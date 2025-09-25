@@ -27,5 +27,5 @@ $$
 
 # Работа программы
 
-![](https://github.com/Kotop3ska/probTheory/blob/main/Task1/example.png)
+![]()
 

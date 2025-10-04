@@ -1,65 +1,83 @@
 import random
-import matplotlib.pyplot as plt
+import plotly.graph_objects as go
+import numpy as np
 from math import comb
 
-# Классическое определение
-
+# Классическая вероятность
 total_ways = comb(50, 25)
 favorable = 2 * comb(40, 15)
 classical_prob = favorable / total_ways
 
 print(f"Классическая вероятность: {classical_prob:.6f}")
 
-# Частотное определение
+# Частотное моделирование
+max_N = 100000
+step = 500  
+N_values = list(range(step, max_N + 1, step))
+freq_values = []
 
-num_experiments = 100000
-dogs = ['border collie'] * 10 + ['X'] * 40
+dogs_template = ['border collie'] * 10 + ['X'] * 40
 success_count = 0
 
-for _ in range(num_experiments):
+
+for i in range(1, max_N + 1):
+    dogs = dogs_template[:]
     random.shuffle(dogs)
     day1 = dogs[:25]
-    day2 = dogs[25:]
     if day1.count('border collie') == 10 or day1.count('border collie') == 0:
         success_count += 1
+    
+    if i % step == 0:
+        freq = success_count / i
+        freq_values.append(freq)
 
-experimental_freq = success_count / num_experiments
-
-print(f"Количество экспериментов: {num_experiments}")
+final_freq = success_count / max_N
+print(f"Количество экспериментов: {max_N}")
 print(f"Успехов: {success_count}")
-print(f"Частотная вероятность: {experimental_freq:.6f}" )
+print(f"Частотная вероятность: {final_freq:.6f}")
 
-diff = abs(classical_prob - experimental_freq)
+diff = abs(classical_prob - final_freq)
 print(f"Разница: {diff:.6f}")
 
 print("\n" + "-" * 32)
-print(f"{'Метод':<15} | {'Вероятность':<12} ")
+print(f"{'Метод':<15} | {'Вероятность':<12}")
 print("-" * 32)
-print(f"{'Классический':<15} | {classical_prob:<12.6f} ")
-print(f"{'Частотный':<15} | {experimental_freq:<12.6f} ")
+print(f"{'Классический':<15} | {classical_prob:<12.6f}")
+print(f"{'Частотный':<15} | {final_freq:<12.6f}")
 print("-" * 32)
 
-methods = ['Классический', 'Частотный']
-probs = [classical_prob, experimental_freq]
-colors = ['blue', 'red']
+fig = go.Figure()
 
-plt.figure(figsize=(8, 5))
-bars = plt.bar(methods, probs, color=colors, edgecolor='black', alpha=0.8)
+fig.add_trace(go.Scatter(
+    x=N_values,
+    y=freq_values,
+    mode='lines',
+    name='Частота',
+    line=dict(color='blue', width=2)
+))
 
-for bar, prob in zip(bars, probs):
-    plt.text(
-        bar.get_x() + bar.get_width() / 2,
-        bar.get_height() + max(probs) * 0.02,
-        f'{prob:.6f}',
-        ha='center',
-        va='bottom',
-        fontsize=12,
-        fontweight='bold'
-    )
+fig.add_trace(go.Scatter(
+    x=N_values,
+    y=[classical_prob] * len(N_values),
+    mode='lines',
+    name='Вероятность',
+    line=dict(color='red', width=2, dash='dash')
+))
 
-plt.title('Сравнение классической и частотной вероятностей\n(все 10 собак породы бордер колли в один день)', fontsize=14)
-plt.ylabel('Вероятность', fontsize=12)
-plt.ylim(0, max(probs) * 1.3)
-plt.grid(axis='y', linestyle='--', alpha=0.7)
-plt.tight_layout()
-plt.show()
+fig.update_layout(
+    title='Сходимость частоты к теоретической вероятности',
+    xaxis_title='N (количество экспериментов)',
+    yaxis_title='P(A)',
+    width=700,
+    height=400,
+    legend=dict(
+        x=0.95,
+        y=0.95,
+        bgcolor='rgba(255,255,255,0.8)',
+        bordercolor='black',
+        borderwidth=1
+    ),
+    margin=dict(l=0, r=0, t=30, b=0)
+)
+
+fig.show()

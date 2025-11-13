@@ -25,8 +25,8 @@ max_prob = probabilities.max()
 mode = [int(x) for x in x_values if round(probabilities[x], 6) == round(max_prob, 6)]
 
 print("\n=== Числовые характеристики ===")
-print(f"M = {M:.4f}")
-print(f"D = {D:.4f}")
+print(f"M(X) = {M:.4f}")
+print(f"D(X) = {D:.4f}")
 print(f"σ = {sqrt_D:.4f}")
 print(f"Мода = {mode}")
 

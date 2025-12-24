@@ -14,6 +14,13 @@
 * [Условие](https://github.com/Kotop3ska/probTheory/blob/main/Task2/README.md)
 * [Реализация](https://github.com/Kotop3ska/probTheory/blob/main/Task2/code.py)
 
+## Задание 3. Применение условных вероятностей в анализе данных
+
+*На некотором наборе данных продемонстрировать применение условных вероятностей. Рассматриваемый набор данных необходимо описать (назначение, описание признаков).*
+
+* [Условие](https://github.com/Kotop3ska/probTheory/blob/main/Task3/README.md)
+* [Реализация](https://github.com/Kotop3ska/probTheory/blob/main/Task3/code.ipynb)
+
 ## Задание 5. Законы распределения дискретных случайных величин
 
 *Привести примеры дискретных случайных величин, распределенных по:<br>

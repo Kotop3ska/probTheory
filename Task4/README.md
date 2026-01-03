@@ -1,6 +1,8 @@
 
 # 🌙 Парадокс Спящей красавицы  
 
+<img src="https://github.com/Kotop3ska/probTheory/blob/main/Task4/photo.png" width="400" height="1200">
+
 ---
 
 ## 🧪 Условия эксперимента

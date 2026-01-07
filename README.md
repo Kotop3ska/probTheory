@@ -55,3 +55,10 @@ f) определите коэффициент асимметрии и эксц�
 
 * [Условие](https://github.com/Kotop3ska/probTheory/blob/main/Task6/README.md)
 * [Реализация](https://github.com/Kotop3ska/probTheory/blob/main/Task6/code.ipynb)
+
+## Задание 7. Исследование зависимости плотности от параметров НСВ в Python
+
+*Самостоятельно исследуйте поведение графика и расчет характеристик для другого вида непрерывного распределения. Для рассматриваемого распределения оформите теоретическую часть (вставьте пояснения и расчетные формулы).*
+
+* [Условие](https://github.com/Kotop3ska/probTheory/blob/main/Task7/README.md)
+* [Реализация](https://github.com/Kotop3ska/probTheory/blob/main/Task7/code.ipynb)

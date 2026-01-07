@@ -21,6 +21,13 @@
 * [Условие](https://github.com/Kotop3ska/probTheory/blob/main/Task3/README.md)
 * [Реализация](https://github.com/Kotop3ska/probTheory/blob/main/Task3/code.ipynb)
 
+## Задание 4. Парадоксы в теории вероятностей
+
+*Рассмотреть какой-нибудь парадокс. Смоделировать его решение в Python.*
+
+* [Условие](https://github.com/Kotop3ska/probTheory/blob/main/Task4/README.md)
+* [Реализация](https://github.com/Kotop3ska/probTheory/blob/main/Task4/code.ipynb)
+
 ## Задание 5. Законы распределения дискретных случайных величин
 
 *Привести примеры дискретных случайных величин, распределенных по:<br>*
